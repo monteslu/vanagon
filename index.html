@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vanagon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="gameStyles.css" type="text/css" rel="stylesheet" />
+    <script src="http://rebroadcast.nodester.com/socket.io/socket.io.js"></script>
+    <script src="dojoConfig.js"></script>
+    <script src="deps/Box2d.min.js"></script>
+    <script src="dist/game.js"></script>
+    <script>
+      if(!window.require){
+        console.log('Game not built, using dojo for loader');
+        var hd = document.getElementsByTagName("head")[0],
+        el = document.createElement("script");
+        el.async = true; // set it to async
+        el.src = 'deps/dojo/dojo.js';
+        hd.insertBefore(el, hd.firstChild); // insert it so it will load
+      }
+    </script>
+  </head>
+  <body>
+    <img id="logo" src="images/vanagon_ground.png">
+    <div id="gameArea">
+      <canvas id="canvas" width="770" height="480" ></canvas>
+      <div id="status"><span style="text-align: left; float: left; margin-left: 2em;">By <a href="http://twitter.com/monteslu" target="_blank">@monteslu</a></span> <span id="message"></span><span id="scoreInfo" style="float:right; margin-right: 2em;"><span id="output">Scan barcode with phone, or press ENTER key</span></span><div>
+    </div>
+  </body>
+</html>
