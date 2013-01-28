@@ -48,10 +48,20 @@ define([
   });
 
   wsrpc._ready.then(function(){
+
     wsrpc.joinChannel(rand).then(function(){
       console.log('joined', rand);
       //dom.byId('output').innerHTML = rand;
     });
+
+    wsrpc.shorten(url).then(
+      function(shortUrl){
+        dom.byId('controlLink').innerHTML = '<a href=\"' + shortUrl + '\" target=\"_blank\">' + shortUrl + '</a>';
+      }, function(err){
+        console.log('Error creating short link', err);
+        dom.byId('controlLink').innerHTML = '<a href=\"' + url + '\" target=\"_blank\">' + url + '</a>';
+      }
+    );
 
   });
 
